@@ -5,6 +5,9 @@ import WorkloadCard from '../components/WorkloadCard';
 import FilterDropdown from '../components/FilterDropdown';
 import { Users, UserCheck, ShieldCheck, ListTodo, X, User, Eye } from 'lucide-react';
 
+
+const API_BASE = import.meta.env.VITE_API_URL;
+
 const TeamWorkloadPage = () => {
     const { tasks ,allUsers} = useAuth(); 
     const [teamData, setTeamData] = useState([]);
@@ -19,7 +22,7 @@ const TeamWorkloadPage = () => {
         const fetchWorkload = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch('${API_BASE}/api/workload');
+                const response = await fetch(`${API_BASE}/api/workload`);
                 const data = await response.json();
                 setTeamData(data);
             } catch (error) {

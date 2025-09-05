@@ -2,6 +2,9 @@ import React, { useState, useRef } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Download, Upload, FileUp, FileText, CheckCircle, AlertTriangle } from 'lucide-react';
 
+
+const API_BASE = import.meta.env.VITE_API_URL;
+
 const DataImportExportPage = () => {
     const { tasks, importTasks,fetchTasks } = useAuth(); 
     const [selectedFile, setSelectedFile] = useState(null);
@@ -21,7 +24,7 @@ const DataImportExportPage = () => {
     };
 
     const handleExportData = () => {
-        window.open('${API_BASE}/api/requests/export', '_blank');
+        window.open(`${API_BASE}/api/requests/export', '_blank`);
     };
 
     const handleFileSelect = (event) => {

@@ -5,6 +5,8 @@ import GanttChart from '../components/GanttChart';
 import { useAuth } from '../hooks/useAuth';
 import { Link } from 'react-router-dom';
 
+
+const API_BASE = import.meta.env.VITE_API_URL;
 // --- View for Admins and SuperAdmins ---
 const AdminDashboardView = () => {
     const { tasks, fetchTasks } = useAuth();
@@ -16,7 +18,7 @@ const AdminDashboardView = () => {
             setIsLoading(true);
             await fetchTasks();
             try {
-                const response = await fetch('${API_BASE}/api/dashboard-stats');
+                const response = await fetch(`${API_BASE}/api/dashboard-stats`);
                 const data = await response.json();
                 setStats(data);
             } catch (error) {

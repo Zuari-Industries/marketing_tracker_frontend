@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
                    
                     console.log("Token from localStorage:", token);
 
-                    const response = await fetch('${API_BASE}/api/profile', {
+                    const response = await fetch(`${API_BASE}/api/profile`, {
                         headers: {
                             
                             'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ const resetPassword = async (token, password) => {
 
     const fetchTasks = useCallback(async () => {
         try {
-            const response = await fetch('${API_BASE}/api/requests');
+            const response = await fetch(`${API_BASE}/api/requests`);
             if (!response.ok) {
                 throw new Error('Failed to fetch tasks.');
             }
@@ -243,7 +243,7 @@ const updateSubtask = async (subtaskData) => { // Ab requestId ki zaroorat nahin
     };
     const fetchUsers = useCallback(async () => {
         try {
-            const response = await fetch('${API_BASE}/api/users');
+            const response = await fetch(`${API_BASE}/api/users`);
             if (!response.ok) throw new Error('Failed to fetch users');
             const data = await response.json();
             setAllUsers(data);
@@ -254,7 +254,7 @@ const updateSubtask = async (subtaskData) => { // Ab requestId ki zaroorat nahin
 
     const addUser = async (userData) => {
         try {
-            const response = await fetch('${API_BASE}/api/users', {
+            const response = await fetch(`${API_BASE}/api/users`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData),
@@ -299,7 +299,7 @@ const updateSubtask = async (subtaskData) => { // Ab requestId ki zaroorat nahin
     };
   const fetchFormFields = useCallback(async () => {
         try {
-            const response = await fetch('${API_BASE}/api/form-fields');
+            const response = await fetch(`${API_BASE}/api/form-fields`);
             if (!response.ok) throw new Error('Failed to fetch form fields');
             const data = await response.json();
             setFormFields(data);
@@ -310,7 +310,7 @@ const updateSubtask = async (subtaskData) => { // Ab requestId ki zaroorat nahin
 
     const addFormField = async (fieldData) => {
         try {
-            await fetch('${API_BASE}/api/form-fields', {
+            await fetch(`${API_BASE}/api/form-fields`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(fieldData),
@@ -386,7 +386,7 @@ const deleteFormField = async (fieldId) => {
         formData.append('file', file);
 
         try {
-            const response = await fetch('${API_BASE}/api/requests/import', {
+            const response = await fetch(`${API_BASE}/api/requests/import`, {
                 method: 'POST',
                 body: formData,
             });
@@ -404,7 +404,7 @@ const deleteFormField = async (fieldId) => {
     };
     const addTask = async (taskData) => {
         try {
-            const response = await fetch('${API_BASE}/api/requests', {
+            const response = await fetch(`${API_BASE}/api/requests`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
