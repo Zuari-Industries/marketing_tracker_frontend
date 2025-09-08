@@ -24,7 +24,7 @@ const DataImportExportPage = () => {
     };
 
     const handleExportData = () => {
-        window.open(`${API_BASE}/api/requests/export', '_blank`);
+        window.open(`${API_BASE}/api/requests/export`, "_blank");
     };
 
     const handleFileSelect = (event) => {
